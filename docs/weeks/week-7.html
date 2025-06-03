@@ -70,10 +70,38 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <meta property="og:title" content="Week 7 (02-06-25 to 06-06-25) – MC3020 - Probability and Statistics">
 <meta property="og:description" content="Homepage for MC3020 - Probability and Statistics at University of Jaffna, April,2025.">
-<meta property="og:image" content="https://mayooran1987.github.io/MC3020-E23/images/asap.jpg">
 <meta property="og:site_name" content="MC3020 - Probability and Statistics">
 </head>
 
@@ -362,17 +390,64 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="practice" class="level2">
 <h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<p><img src="..\images/asap.jpg" class="img-fluid" width="87"></p>
+<ol type="1">
+<li><p>Consider a civil engineering project where traffic flow at a certain intersection needs to be analyzed. The number of vehicles waiting at a traffic signal follows the following probability distribution:</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>X = x</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td>P (X = x)</td>
+<td>0.20</td>
+<td>k</td>
+<td>0.25</td>
+<td>0.10</td>
+<td>0.10</td>
+<td>0.05</td>
+</tr>
+</tbody>
+</table>
+<p>Here, z represents the number of vehicles waiting, and P(X = x) is the probability of observing vehicles waiting. Given this information, let’s solve the following questions:</p>
+<ol type="a">
+<li>Determine the value of k.</li>
+<li>Estimate the expected number and standard deviation of vehicles waiting at the traffic signal.</li>
+<li>What is the probability that fewer than three vehicles are waiting at the traffic signal?</li>
+<li>What is the probability that at least four vehicles are waiting at the traffic signal?</li>
+</ol></li>
+<li><p>In the November 1990 issue of Chemical Engineering Progress, a study discussed the percent purity of oxygen from a certain supplier. Assume that the mean was 99.61 with a standard deviation of 0.08. Assume that the distribution of percent purity was approximately normal.</p>
+<ol type="a">
+<li>What percentage of the purity values would you expect to be between 99.5 and 99.7?</li>
+<li>What purity value would you expect to exceed exactly 5% of the population?</li>
+</ol></li>
+<li><p>High accumulation of certain pollutants in the atmosphere can adversely affect the environment and human health, which is a concern for the Ariviyal Nagar region, particularly the vicinity of the University of Jaffna. Elevated levels of pollutants such as particulate matter, sulphur dioxide, and nitrogen oxides can lead to respiratory issues and environmental degradation. Nitrogen oxides (NOx) are primary contributors to air pollution, primarily originating from vehicle emissions, industrial processes, and the combustion of fossil fuels. Suppose the distribution of nitrogen oxide emissions from vehicles in the Ariviyal Nagar region can be modelled adequately by a normal distribution with a mean emission level (μ) of 80 ppb (parts per billion) and standard deviation(σ) of 12 ppb.</p>
+<ol type="a">
+<li>What is the probability that a randomly selected vehicle from the Ariviyal Nagar region will have emission levels less than 50 ppb?</li>
+<li>What is the probability that a randomly selected vehicle from the Ariviyal Nagar region will have emission levels greater than 100 ppb?</li>
+<li>What is the probability that a randomly selected vehicle from the Ariviyal Nagar region will have emission levels between 40 ppb and 116 ppb?</li>
+</ol></li>
+<li><p>The operator of a pumping station has observed that demand for water during early afternoon hours follows an approximately exponential distribution with a mean of 100 cubic feet per second (cfs).</p>
+<ol type="a">
+<li>Find the probability that the demand will exceed 200 cfs during the early afternoon on a randomly selected day.</li>
+<li>What water-pumping capacity should the station maintain during the early afternoons so that the probability that demand will exceed capacity on a randomly selected day is only 0.01?</li>
+</ol></li>
+<li><p>The heights of 1000 students are approximately normally distributed with a mean of 174.5 centimetres and a standard deviation of 6.9 centimetres. Suppose 200 random samples of size 25 are drawn from this population and the means are recorded to the nearest tenth of a centimetre. Determine</p>
+<ol type="a">
+<li><p>the mean and standard deviation of the sampling distribution of <span class="math inline">\(\bar{X}\)</span>.</p></li>
+<li><p>the number of sample means falling below 172.0 centimeters.</p></li>
+<li><p>the number of sample means that fall between 172.5 and 175.8 centimeters inclusive.</p></li>
+</ol></li>
+</ol>
 </section>
 <section id="perform" class="level2">
 <h2 class="anchored" data-anchor-id="perform">Perform</h2>
-<p>Assignment 2 Examination is scheduled from 9:10 am to 9:50 am on Tuesday (03-06-2025). To ensure that the exam runs smoothly, we have arranged the exam halls as follows:&nbsp;</p>
-<ul>
-<li><p>Group&nbsp;1&nbsp;(Registration numbers <strong>2023/E/001 to 2023/E/101</strong>) will be in <strong>Exam&nbsp;Hall&nbsp;1&nbsp;(First floor, Computer Engineering Department)</strong>&nbsp;&nbsp;</p></li>
-<li><p>Group 2&nbsp;(Registration numbers <strong>2023/E/103 to 2023/E/167</strong>) will be in <strong>Lecture&nbsp;Hall 13&nbsp;(2nd&nbsp;floor, Admin Building)</strong>&nbsp;&nbsp;and&nbsp;</p></li>
-<li><p>The remaining students (Registration numbers <strong>2023/E/168 to 2022/E/198</strong>&nbsp;and <strong>re-attempt students</strong>) will be in the <strong>Auditorium (2nd&nbsp;floor, Admin Building)</strong>.&nbsp;</p></li>
-</ul>
-<p>Make sure to review all sections thoroughly to ensure you’re prepared for the exam! I hope everyone follows the exam policies and cooperates with the exam administration to make the exam run smoothly. Moreover, you can access class materials by checking out the <a href="https://mayooran1987.github.io/MC3020-E23/" title="https://mayooran1987.github.io/MC3020-E23/">course webpage</a>.</p>
+<p>Assignment 2 Examination is postponed to Monday (09-06-2025).</p>
 <div style="font-size: 0.875em;">
 <p>Back to <a href=".." title="Course schedule">course schedule</a> ⏎</p>
 </div>
